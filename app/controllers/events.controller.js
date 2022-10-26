@@ -1,28 +1,42 @@
 const db = require("../models");
+const upload = require("../middlewares/upload");
 const Events = db.events;
+const path = require('path');
+
+const utilFunctions = require("../utils/utilsFunctions");
+
+
+   
 
 exports.addEvent=(req,res)=>{
+   
 
-    const event = new Events({
-        name: req.body.name,
-        shortDescription : req.body.shortDescription,
-        description:req.body.description,
-        date : req.body.date,
-        price :req.body.number,
-        free : req.body.free ,
-    });
+        var obj =  {
+          name: "helo",
+          shortDescription : "String",
+          description:"String",
+          date : "String",
+          price :100,
+          free : false ,
+          img: {
+              data:utilFunctions.base64_encode(req.file.path),
+              contentType : req.file.mimetype 
+          }
+        }
+        Events.create(obj, (err, item) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+               res.send(item);
+                // res.send(obj)
+            }
+        });
+    console.log(req);
+        // res.send(req.file.path);
+    }
 
-    event.save((err) =>{
-if(err){
-    res.status(500).send({message:"Error in saving event! please try again later"});
-}
 
-   res.status(200).send({message:"Event added successfully" , event})
-
-    });
-
-
-}
 
 exports.fetchOne=(req,res)=>{
     console.log("Fetch one");
