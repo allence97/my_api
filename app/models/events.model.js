@@ -10,6 +10,10 @@ description:String,
 date : String,
 price :Number,
 free : Boolean ,
+img: [{
+    data:String,
+    contentType : String
+}],
 }));
 
 module.exports = Events;
