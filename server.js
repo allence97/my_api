@@ -11,7 +11,9 @@ origin : "http://localhost:8081"
 };
 
 //cors provides Express middleware to enable CORS
-app.use(cors(corsOption));
+// app.use(cors(corsOption));
+
+app.use(cors());
 
 
 // parse request of content-type - application/json
