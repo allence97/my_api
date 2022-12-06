@@ -32,7 +32,7 @@ app.use(cookieSession({
 const db = require('./app/models');
 const Role = db.role;
 
-db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}` ,{
+db.mongoose.connect(`mongodb+srv://allence97:<password>@cluster0.ga7muou.mongodb.net/?retryWrites=true&w=majority` ,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(()=>{
