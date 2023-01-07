@@ -11,7 +11,9 @@ origin : "http://localhost:8081"
 };
 
 //cors provides Express middleware to enable CORS
-app.use(cors(corsOption));
+// app.use(cors(corsOption));
+
+app.use(cors());
 
 
 // parse request of content-type - application/json
@@ -32,7 +34,7 @@ app.use(cookieSession({
 const db = require('./app/models');
 const Role = db.role;
 
-db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}` ,{
+db.mongoose.connect(`mongodb+srv://allence97:allenceJesus@cluster0.ga7muou.mongodb.net/?retryWrites=true&w=majority` ,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(()=>{
