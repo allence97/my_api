@@ -85,7 +85,10 @@ function initial() {
 //simple route 
 
 app.get("/" , (req,res)=>{
-    res.json({message:"Hello from Lazy Developer"})
+    res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.json({message:"Hello from Lazy Developer"});
+  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
 });
 
 // ROUTES
