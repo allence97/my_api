@@ -18,7 +18,7 @@ module.exports = function(app) {
   });
 
   //Unprotected route
-  app.get("/api/test/all", controller.allAccess);
+  app.get("/api/test/all",[authJwt.verifyToken] ,controller.allAccess);
 
   //middleware(verifytoken) for protected route
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
