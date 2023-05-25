@@ -84,7 +84,7 @@ function initial() {
 
 //simple route 
 
-app.get("/favicon.ico", (req, res) => res.status(200).send());
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.get("/", (req, res) => {
   res.setHeader('Content-Type', 'text/html');
